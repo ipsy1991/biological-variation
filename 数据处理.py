@@ -3,7 +3,7 @@ import numpy
 import xlwt
 import xlrd
 import time
-date=xlrd.open_workbook('D:\\***********\\数据格式.xls')#读取表格
+date=xlrd.open_workbook('数据格式.xls')#读取表格
 table=date.sheets()[0]#转存数据
 nonr2=numpy.array(table.col_values(0))#获取第一列
 n=numpy.sum(nonr2 == '')#获取第一列中不为空的数量
@@ -34,7 +34,7 @@ print('总计测定'+str(int(r1))+'次')
 def datef(ax):#定义一个函数遍历对应列的所有非空格数据
     datemean=[]
     for fi in range(0,r1):
-        Qdata=xlrd.open_workbook('D:\\********\\re0.xls')#读取转存表格
+        Qdata=xlrd.open_workbook('re0.xls')#读取转存表格
         Qtable=Qdata.sheets()[0]
         zdatemean1=Qtable.col_values(ax)[fi]
         if zdatemean1=="异常值":
@@ -71,7 +71,7 @@ def cvf(ax):#根据列的编码计算出生物学变异数据
     while t in range(0,r1+1):
         #print (t)
         tn=tn+1
-        Qdata=xlrd.open_workbook('D:\\*************\\re0.xls')#读取转存表格
+        Qdata=xlrd.open_workbook('re0.xls')#读取转存表格
         Qtable=Qdata.sheets()[0]
         datemean=datef(0)
         mean=numpy.mean(datemean)
@@ -95,7 +95,7 @@ def cvf(ax):#根据列的编码计算出生物学变异数据
     #去离群值之后的均数与标准差
     mean=numpy.mean(datemean)
     sd=numpy.std(datemean)    
-    Qdata=xlrd.open_workbook('D:\\***********\\re0.xls')#读取转存表格
+    Qdata=xlrd.open_workbook('re0.xls')#读取转存表格
     Qtable=Qdata.sheets()[0]
     zdate1=[]#以ID分组数据
     i=0
